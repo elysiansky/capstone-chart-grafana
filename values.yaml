@@ -7,7 +7,7 @@ replicaCount: 1
 openvasVulnerabilityTests:
   replicas: 2
   image:
-    repository: elysiansky/capstone-grafana
+    repository: elysiansky/capstone-chart-grafana
     tag: 
   service:
     type: ClusterIP
