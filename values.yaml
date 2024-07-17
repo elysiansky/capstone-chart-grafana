@@ -8,11 +8,11 @@ image:
   repository: elysiansky/capstone-grafana
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 19fd21a-amd64
+  tag: "19fd21a-amd64"
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "capstone-grafana"
+fullnameOverride: "capstone-grafana"
 
 serviceAccount:
   # Specifies whether a service account should be created
