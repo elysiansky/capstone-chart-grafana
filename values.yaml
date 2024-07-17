@@ -8,7 +8,7 @@ grafana:
   replicas: 2
   image:
     repository: elysiansky/capstone-chart-grafana
-    tag: d156fba-amd64
+    tag: 0ee4906-amd64
   service:
     type: ClusterIP
   resources:
