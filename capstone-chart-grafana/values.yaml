@@ -5,14 +5,14 @@
 replicaCount: 1
 
 image:
-  repository: elysiansky/capstone-chart-grafana 
+  repository: elysiansky/capstone-chart-grafana
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "capstone-grafana" 
+fullnameOverride: "capstone-grafana"
 
 serviceAccount:
   # Specifies whether a service account should be created
