@@ -1,18 +1,27 @@
-# Default values for capstone-chart-grafana.
+# Default values for capstone-chart-openvas-vulnerability-tests.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
-image:
-  repository: elysiansky/capstone-grafana
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+openvasVulnerabilityTests:
+  replicas: 2
+  image:
+    repository: elysiansky/capstone-grafana
+    tag: b2444b8-amd64
+  service:
+    type: ClusterIP
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
 imagePullSecrets: []
-nameOverride: "capstone-grafana" 
-fullnameOverride: "capstone-grafana"
+nameOverride: ""
+fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -88,17 +97,15 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+volumes:
+  - name: vt-data
+    persistentVolumeClaim:
+      claimName: vt-data-pvc
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts:
+  - name: vt-data
+    mountPath: /mnt
 
 nodeSelector: {}
 
