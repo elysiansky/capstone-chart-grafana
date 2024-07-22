@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: elysiansky/capstone-chart-grafana 
+  repository: elysiansky/capstone-grafana 
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -72,13 +72,13 @@ resources: {}
   #   memory: 128Mi
 
 livenessProbe:
-  httpGet:
+  tcpSocket:
     path: /
-    port: http
+    port: 3000
 readinessProbe:
-  httpGet:
+  tcpSocket:
     path: /
-    port: http
+    port: 3000
 
 autoscaling:
   enabled: false
